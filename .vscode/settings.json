@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/20dacab0-5ee2-46be-94a8-46bbbccf6c1c/AppServices/subscriptions/20dacab0-5ee2-46be-94a8-46bbbccf6c1c/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/order-payment-integration-app",
+    "appService.deploySubpath": "."
+}
