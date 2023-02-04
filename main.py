@@ -12,7 +12,7 @@ def app_create():
     
     # this the the temporary data we have provided for testing purpose
     data = {
-        "amount" : 60000,
+        "amount" : 40000,
         "currency" : "INR",
         "receipt" : "dynamic_receipt",
         "notes":{
