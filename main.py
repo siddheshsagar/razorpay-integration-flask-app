@@ -64,10 +64,10 @@ def payment_handler():
 if __name__ == '__main__':
     # use below in production env
     # to check the app, open http://localhost:8080/
-#     serve(app,host='0.0.0.0', port=8080)
+    serve(app,host='0.0.0.0', port=8080)
     
     # use below in development environment
-    app.run(debug="True")
+#     app.run(debug="True")
     
     # by default, debug="False"
     
