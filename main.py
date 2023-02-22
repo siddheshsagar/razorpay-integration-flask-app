@@ -9,14 +9,14 @@ app = Flask(__name__)
 
 
 # azure sql connection 
-server = 'hotel-db-server.database.windows.net'
-database = 'hotel-user'
-username = 'priyonuj'
-password = '12345@Asdf'
-driver= '{ODBC Driver 18 for SQL Server}'
+# server = 'hotel-db-server.database.windows.net'
+# database = 'hotel-user'
+# username = 'priyonuj'
+# password = '12345@Asdf'
+# driver= '{ODBC Driver 18 for SQL Server}'
 
-conn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) 
-cursor = conn.cursor()
+# conn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) 
+# cursor = conn.cursor()
 
 
 @app.route('/')
@@ -51,12 +51,12 @@ def payment_handler():
     else:
         status = "Failed"
     
-    submitted_at = datetime.datetime.now()  
+#     submitted_at = datetime.datetime.now()  
     
-    query = "INSERT INTO paymentInfo(razorpay_order_id, razorpay_payment_id, amount, status, submitted_at) VALUES (?, ?, ?, ?, ?)"
-    values = (response['razorpay_order_id'], response['razorpay_payment_id'], amount, status, submitted_at)
-    cursor.execute(query, values)
-    conn.commit()
+#     query = "INSERT INTO paymentInfo(razorpay_order_id, razorpay_payment_id, amount, status, submitted_at) VALUES (?, ?, ?, ?, ?)"
+#     values = (response['razorpay_order_id'], response['razorpay_payment_id'], amount, status, submitted_at)
+#     cursor.execute(query, values)
+#     conn.commit()
     
     return status
 
