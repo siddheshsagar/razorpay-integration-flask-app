@@ -3,12 +3,13 @@
 
 <script>
     var order_id = '{{Order['id']}}' 
+    var amount = '{{Order['amount']}}'
     var options = {
-        "key": "rzp_test_UTtd75CFIcXAzt",
+        "key": "rzp_test_MyVOqc8q5Empfv",
         "name": "Celebal Technologies",
         "description": "Test Transaction",
         "order_id": order_id, 
-        "amount": '{{Order['amount']}}',
+        "amount": amount,
         "currency": "INR",
         "receipt": "dynamic_receipt",
         "notes": {
@@ -17,16 +18,21 @@
         },
 
         "handler": function (response){
+            const body = {
+                response,
+                amount
+            };
+
             fetch('/paymentHandler', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(response)
+                body: JSON.stringify(body)
             })
             .then(response => response.text())
             .then(data => {
-                if (data === "True") {
+                if (data === "Done") {
                     alert("Payment Successful!");
                 } else {
                     alert("Payment Failed");
