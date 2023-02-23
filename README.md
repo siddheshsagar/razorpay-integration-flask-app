@@ -1,5 +1,6 @@
 Razorpay Test App for Python
-Sample App for Razorpay Python Integration
+
+-> Sample App for Razorpay Python Integration
 
 When deploying the flask app to azure web app, one might face problem where the web app will give the 
 "Application Error" or the web app will not run properly.
