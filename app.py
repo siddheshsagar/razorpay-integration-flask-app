@@ -19,7 +19,7 @@ conn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+
 cursor = conn.cursor()
 
 
-@app.route('/')
+@app.route('/pay')
 def app_create():
     # from the checkout page the when the customer hit the "proceed to pay button", a post request will be called to this 
     # endpoind along with the data associated with the purchase.
@@ -44,6 +44,9 @@ def payment_handler():
     response = data.get('response')
     amount = data.get('amount')
     
+    # printing the response data for demo purpose
+    print("Response ---> ",response)
+    
     # verify payment signatures
     status = razorpay_client.utility.verify_payment_signature(response)
     if str(status) == "True":
@@ -57,7 +60,7 @@ def payment_handler():
     values = (response['razorpay_order_id'], response['razorpay_payment_id'], amount, status, submitted_at)
     cursor.execute(query, values)
     conn.commit()
-    
+   
     # returning the status to UI
     return status
 

@@ -1,6 +1,20 @@
 <button id="rzp-button1">Pay</button>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
+<style>
+    #rzp-button1 {
+        display: block;
+        margin: 50px auto 0;
+        background-color: #0070ba;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+
 <script>
     var order_id = '{{Order['id']}}' 
     var amount = '{{Order['amount']}}'
